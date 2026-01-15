@@ -1,7 +1,8 @@
 """Data models for requests and responses."""
 
+from __future__ import annotations
 from dataclasses import dataclass, field
-from typing import List, Dict, Any, Optional, Literal
+from typing import List, Dict, Any, Optional, Literal, Union
 from enum import Enum
 
 
@@ -144,7 +145,7 @@ class EmbeddingRequest:
         additional_params: Additional provider-specific parameters
     """
     
-    input: List[str] | str
+    input: Union[List[str], str]
     model: Optional[str] = None
     encoding_format: Literal["float", "base64"] = "float"
     dimensions: Optional[int] = None

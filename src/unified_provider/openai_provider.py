@@ -48,6 +48,7 @@ class OpenAIProvider(BaseProvider):
             RateLimitError: If rate limit exceeded
             APIError: For other API errors
         """
+        error_data = None
         try:
             error_data = response.json()
             error_message = error_data.get("error", {}).get("message", str(error_data))
@@ -71,7 +72,7 @@ class OpenAIProvider(BaseProvider):
                 f"API request failed: {error_message}",
                 provider="openai",
                 status_code=response.status_code,
-                response_data=error_data if 'error_data' in locals() else None,
+                response_data=error_data,
             )
     
     async def chat_completion(self, request: ChatRequest) -> ChatResponse:
