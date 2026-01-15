@@ -21,6 +21,7 @@ from .models import (
     ChatResponse,
     EmbeddingRequest,
     EmbeddingResponse,
+    MessageRole,
 )
 
 __all__ = [
@@ -37,6 +38,7 @@ __all__ = [
     "ChatResponse",
     "EmbeddingRequest",
     "EmbeddingResponse",
+    "MessageRole",
 ]
 
 __version__ = "0.1.0"
